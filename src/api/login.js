@@ -64,3 +64,10 @@ export function getCodeImg() {
     timeout: 20000
   })
 }
+
+export function getToken () {
+  return request({
+    url: '/apiW/app/auth',
+    method: 'post'
+  })
+}

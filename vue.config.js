@@ -34,11 +34,19 @@ module.exports = {
     open: true,
     proxy: {
       // detail: https://cli.vuejs.org/config/#devserver-proxy
-      [process.env.VUE_APP_BASE_API]: {
-        target: `http://localhost:8080`,
+      // [process.env.VUE_APP_BASE_API]: {
+      //   target: `http://192.168.1.64:8087`,
+      //   changeOrigin: true,
+      //   pathRewrite: {
+      //     ['^' + process.env.VUE_APP_BASE_API]: ''
+      //   }
+      // },
+      '/dev-api': {
+        target: 'http://192.168.1.64:8087',
+        ws:false,
         changeOrigin: true,
         pathRewrite: {
-          ['^' + process.env.VUE_APP_BASE_API]: ''
+          '^/dev-api': ''
         }
       },
       '/ureport': {
